@@ -1,13 +1,13 @@
 CC=g++
 CFLAGS= -std=c++11 -Wall -O -g
 LDFLAGS=
-EXEC=namoa
+EXEC=main
 
 
 all: mkdir $(EXEC)
 
-namoa: main.o Position.o Label.o Cost.o Arc.o Node.o Graph.o
-				$(CC) -o bin/namoa obj/Label.o obj/Arc.o obj/Node.o obj/Graph.o obj/Position.o obj/Cost.o obj/main.o $(LDFLAGS)
+main: main.o Json.o
+				$(CC) -o bin/main obj/Json.o obj/main.o $(LDFLAGS)
 
 %.o: sources/%.cpp
 				$(CC) -o obj/$@ -c $< $(CFLAGS)
